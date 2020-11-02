@@ -1,7 +1,12 @@
 # Edit the code first_etl.pig file to complete the LOAD statement and read the data from the sample you just created.
+
 # Filter out all records where the country field contains USA:
-# Use a FOREACH … GENERATE statement to create a new relation containing the fields in the same order as shown in the following table 
+
+# Used a FOREACH … GENERATE statement to create a new relation containing the fields in the same order 
 # (the country field is not included since all records now have the same value).
+
+# Limit data reordered into limit_reordered and dump.
+
 
 vi first_etl.pig
 
@@ -21,3 +26,9 @@ usa_only = FILTER data BY country == 'USA';
 reordered = FOREACH usa_only GENERATE campaign_id,
 date,time, UPPER(TRIM(keyword)),
 display_site, placement,was_clicked,cpc;
+
+limit_reordered = LIMIT reordered 10;
+DUMP limit_reordered;
+
+# Save and run in PIG:
+pig -x local first_etl.pig
