@@ -9,3 +9,6 @@ DUMP data;
 first_2_columns = LOAD 'sample1.txt' AS (keyword:chararray, campaign_id:chararray);
 DUMP first_2_columns;
 
+# Run the VIM script in local mode.
+pig -x local first_etl.pig
+
