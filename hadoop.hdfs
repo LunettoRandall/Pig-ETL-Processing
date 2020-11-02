@@ -1,0 +1,2 @@
+# Add the data files to HDFS
+hdfs dfs -mkdir dualcore
