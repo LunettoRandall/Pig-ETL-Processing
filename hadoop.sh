@@ -6,4 +6,3 @@ hdfs dfs -ls dualcore
 hdfs dfs -put $ADIR/data/ad_data1.txt ./dualcore
 hdfs dfs -ls dualcore
 
-
